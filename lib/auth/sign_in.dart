@@ -87,13 +87,13 @@ class _SignInState extends State<SignIn> {
                           Buttons.Google,
                           text: "Sign in with Google",
                           onPressed: () async {
-                            await _googleSignUp().then(
-                              (value) => Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                  builder: (context) => Homepage(),
-                                ),
-                              ),
-                            );
+                          //   await _googleSignUp().then(
+                              // (value) => Navigator.of(context).pushReplacement(
+                              //   MaterialPageRoute(
+                              //     builder: (context) => Homepage(),
+                              //   ),
+                              // ),
+                            // );
                           },
                         ),
                       ],
