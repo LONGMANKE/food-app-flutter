@@ -1,7 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:food_app/API/google_signup.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -9,41 +8,6 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn googleSignIn = GoogleSignIn();
-
-  //SIGN IN WITH GOOGLE FUNCTION / METHOD
-  Future<User?> signInWithGoogle() async {
-    try {
-      //SIGNING IN WITH GOOGLE
-      final GoogleSignInAccount? googleSignInAccount =
-          await googleSignIn.signIn();
-      final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount!.authentication;
-
-      //CREATING CREDENTIAL FOR FIREBASE
-      final AuthCredential credential = GoogleAuthProvider.credential(
-          idToken: googleSignInAuthentication.idToken,
-          accessToken: googleSignInAuthentication.accessToken);
-
-      //SIGNING IN WITH CREDENTIAL & MAKING A USER IN FIREBASE  AND GETTING USER CLASS
-      final userCredential = await _auth.signInWithCredential(credential);
-      final User? user = userCredential.user;
-
-      //CHECKING IS ON
-      assert(!user!.isAnonymous);
-
-      // Ensure your App is Signed up with SHA and SHA256 Certificate in Firebase for complete
-      // authentication
-      final User? currentUser = await _auth.currentUser;
-      assert(currentUser!.uid == user!.uid);
-      print(user);
-      return user;
-    } catch (e) {
-      print(e);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +52,12 @@ class _SignInState extends State<SignIn> {
                           Buttons.Google,
                           text: "Sign in with Google",
                           onPressed: () async {
-                            signInWithGoogle();
+                            // Call our class instance method
+                            GoogleSignUp().signInWithGoogle();
+
+                            // Our method is returning a user
+
+                            //var newUser = GoogleSignUp().signInWithGoogle();
                           },
                         ),
                       ],
@@ -96,7 +65,7 @@ class _SignInState extends State<SignIn> {
                     Column(
                       children: [
                         Text(
-                          'By signing in you are agreeing to our',
+                          'By signing in you agree to our',
                           style: TextStyle(
                             color: Colors.grey[800],
                           ),
