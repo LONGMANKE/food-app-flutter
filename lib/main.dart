@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/auth/sign_in.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp( MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -12,9 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     debugShowCheckedModeBanner: false,
-      home:  SignIn(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(useMaterial3: true),
+      home: SignIn(),
     );
   }
 }
-

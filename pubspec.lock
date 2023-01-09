@@ -125,11 +125,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_localizations:
-    dependency: transitive
-    description: flutter
-    source: sdk
-    version: "0.0.0"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -259,27 +254,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.4"
-  location:
-    dependency: "direct main"
-    description:
-      name: location
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.4.0"
-  location_platform_interface:
-    dependency: transitive
-    description:
-      name: location_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.3.0"
-  location_web:
-    dependency: transitive
-    description:
-      name: location_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.1.1"
   matcher:
     dependency: transitive
     description:
@@ -329,34 +303,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
-  pay:
-    dependency: "direct main"
-    description:
-      name: pay
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.11"
-  pay_android:
-    dependency: transitive
-    description:
-      name: pay_android
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.8"
-  pay_ios:
-    dependency: transitive
-    description:
-      name: pay_ios
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.7"
-  pay_platform_interface:
-    dependency: transitive
-    description:
-      name: pay_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.2"
   petitparser:
     dependency: transitive
     description:
@@ -460,13 +406,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.1.0"
-  yaml:
-    dependency: transitive
-    description:
-      name: yaml
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.1.1"
 sdks:
   dart: ">=2.18.5 <3.0.0"
   flutter: ">=3.0.0"

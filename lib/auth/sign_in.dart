@@ -12,36 +12,38 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-//  Future<void> _googleSignUp() async {
-//     try {
-//       final GoogleSignIn _googleSignIn = GoogleSignIn(
-//         scopes: ['email'],
-      
-//       final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn googleSignIn = GoogleSignIn();
 
-//       final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-//       final GoogleSignInAuthentication googleAuth =
-//           await googleUser.authentication;
+  //SIGN IN KA Function
+  Future<User?> signInWithGoogle() async {
+    try {
+      //SIGNING IN WITH GOOGLE
+      final GoogleSignInAccount? googleSignInAccount =
+          await googleSignIn.signIn();
+      final GoogleSignInAuthentication googleSignInAuthentication =
+          await googleSignInAccount!.authentication;
 
-//       final AuthCredential credential = GoogleAuthProvider.credential(
-//         accessToken: googleAuth.accessToken,
-//         idToken: googleAuth.idToken,
-//       );
+      //CREATING CREDENTIAL FOR FIREBASE
+      final AuthCredential credential = GoogleAuthProvider.credential(
+          idToken: googleSignInAuthentication.idToken,
+          accessToken: googleSignInAuthentication.accessToken);
 
-//       final User user = (await _auth.signInWithCredential(credential)).user;
-//       // print("signed in " + user.displayName);
-//       // userProvider.addUserData(
-//       //   currentUser: user,
-//       //   userEmail: user.email,
-//       //   userImage: user.photoURL,
-//       //   userName: user.displayName,
-//       // );
+      //SIGNING IN WITH CREDENTIAL & MAKING A USER IN FIREBASE  AND GETTING USER CLASS
+      final userCredential = await _auth.signInWithCredential(credential);
+      final User? user = userCredential.user;
 
-//       return user;
-//     } catch (e) {
-//       print(e.message);
-//     }
-  // }
+      //CHECKING IS ON
+      assert(!user!.isAnonymous);
+
+      final User? currentUser = await _auth.currentUser;
+      assert(currentUser!.uid == user!.uid);
+      print(user);
+      return user;
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,13 +89,7 @@ class _SignInState extends State<SignIn> {
                           Buttons.Google,
                           text: "Sign in with Google",
                           onPressed: () async {
-                          //   await _googleSignUp().then(
-                              // (value) => Navigator.of(context).pushReplacement(
-                              //   MaterialPageRoute(
-                              //     builder: (context) => Homepage(),
-                              //   ),
-                              // ),
-                            // );
+                            signInWithGoogle();
                           },
                         ),
                       ],
@@ -121,5 +117,4 @@ class _SignInState extends State<SignIn> {
   }
 }
 
-class Homepage {
-}
+class Homepage {}

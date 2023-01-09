@@ -30,13 +30,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_signin_button: ^2.0.0
   google_sign_in: ^5.0.2
-  firebase_auth: ^4.1.4
+  firebase_auth: any
   cloud_firestore: ^4.1.0
   provider: ^6.0.4
   fluttertoast: ^8.0.8
-  location:
   google_maps_flutter:
-  pay: ^1.0.6
   flutter_svg: ^1.1.6
 dev_dependencies:
   flutter_test:
