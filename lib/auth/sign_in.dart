@@ -33,6 +33,8 @@ class _SignInState extends State<SignIn> {
       //CHECKING IS ON
       assert(!user!.isAnonymous);
 
+      // Ensure your App is Signed up with SHA and SHA256 Certificate in Firebase for complete
+      // authentication
       final User? currentUser = await _auth.currentUser;
       assert(currentUser!.uid == user!.uid);
       print(user);
