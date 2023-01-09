@@ -1,9 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_signin_button/button_view.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-// import 'package:food_app/providers/user_provider.dart';
-// import 'package:food_app/screens/home/home_screen.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class SignIn extends StatefulWidget {
@@ -15,7 +12,7 @@ class _SignInState extends State<SignIn> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn googleSignIn = GoogleSignIn();
 
-  //SIGN IN KA Function
+  //SIGN IN WITH GOOGLE FUNCTION / METHOD
   Future<User?> signInWithGoogle() async {
     try {
       //SIGNING IN WITH GOOGLE
