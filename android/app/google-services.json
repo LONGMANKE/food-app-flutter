@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:196521214330:android:ab8a19ea7982d3e2c756c3",
+        "mobilesdk_app_id": "1:196521214330:android:786d965f0ce897c9c756c3",
         "android_client_info": {
           "package_name": "com.company.foodapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "196521214330-57fn5kh0f4atbhajchvi1cap2e4433af.apps.googleusercontent.com",
+          "client_id": "196521214330-eu2dlmjs5kot71jaeam9gdd386k8c9ri.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.company.foodapp",

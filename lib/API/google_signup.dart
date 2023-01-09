@@ -4,7 +4,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 class GoogleSignUp {
   // Instantiate Firebase and GoogleSignIn instances - Top level code
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn googleSignIn = GoogleSignIn();
+  final GoogleSignIn googleSignIn = GoogleSignIn(
+    scopes: ['email', 'profile'], 
+  clientId: "196521214330-vpq3sti1tj3bj1vcv8t6fmnnm73gded1.apps.googleusercontent.com",
+  );
 
   //SIGN IN WITH GOOGLE FUNCTION / METHOD
   Future<User?> signInWithGoogle() async {
@@ -36,5 +39,6 @@ class GoogleSignUp {
     } catch (e) {
       print(e);
     }
+    return null;
   }
 }

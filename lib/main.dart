@@ -4,7 +4,14 @@ import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: "AIzaSyAT5strzevOIw0p16i1XrJlEa0hHNh62u0",
+      appId: "1:196521214330:android:786d965f0ce897c9c756c3",
+      messagingSenderId: "196521214330",
+      projectId: "foodapp-21",
+    ),
+  );
   runApp(MyApp());
 }
 
