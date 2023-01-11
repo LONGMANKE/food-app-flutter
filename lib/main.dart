@@ -12,6 +12,7 @@ void main() async {
       projectId: "foodapp-21",
     ),
   );
+
   runApp(MyApp());
 }
 
