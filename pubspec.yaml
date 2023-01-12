@@ -36,6 +36,7 @@ dependencies:
   fluttertoast: ^8.0.8
   google_maps_flutter: any
   flutter_svg: ^1.1.6
+  flutter_dotenv: ^5.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -46,6 +47,7 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   assets:
+    - .env
     - assets/
 
   # The following line ensures that the Material Icons font is
