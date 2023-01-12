@@ -52,6 +52,7 @@ class _SignInState extends State<SignIn> {
                           Buttons.Google,
                           text: "Sign in with Google",
                           onPressed: () async {
+
                             // Call our class instance method
                             GoogleSignUp().signInWithGoogle();
 

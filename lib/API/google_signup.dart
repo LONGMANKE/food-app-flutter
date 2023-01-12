@@ -1,12 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class GoogleSignUp {
   // Instantiate Firebase and GoogleSignIn instances - Top level code
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn googleSignIn = GoogleSignIn(
-    scopes: ['email', 'profile'], 
-  clientId: "196521214330-vpq3sti1tj3bj1vcv8t6fmnnm73gded1.apps.googleusercontent.com",
+    scopes: ['email', 'profile'],
+    clientId: (dotenv.env['CLIENTID']),
   );
 
   //SIGN IN WITH GOOGLE FUNCTION / METHOD

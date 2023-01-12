@@ -4,15 +4,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
-  await dotenv.load(fileName: ".env");
+  await dotenv.load();  
   WidgetsFlutterBinding.ensureInitialized();
-  DotEnv().env['APIKEY'];
   await Firebase.initializeApp(
     options: const FirebaseOptions(
-      apiKey: "APIKEY",
-      appId: "1:196521214330:android:786d965f0ce897c9c756c3",
-      messagingSenderId: "196521214330",
-      projectId: "foodapp-21",
+      apiKey: "dotenv.env['APIKEY']",
+      appId: "dotenv.env['APIID']",
+      messagingSenderId: "dotenv.env['SENDERID']",
+      projectId: "dotenv.env['PROJECTID']",
     ),
   );
   // WidgetsFlutterBinding.ensureInitialized();
