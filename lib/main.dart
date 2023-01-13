@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app/auth/sign_in.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:food_app/screens/home_screen/home_screen.dart';
 
 void main() async {
   await dotenv.load();  
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
-      home: SignIn(),
+      home: HomeScreen(),
     );
   }
 }

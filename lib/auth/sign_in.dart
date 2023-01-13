@@ -52,9 +52,15 @@ class _SignInState extends State<SignIn> {
                           Buttons.Google,
                           text: "Sign in with Google",
                           onPressed: () async {
-
                             // Call our class instance method
-                            GoogleSignUp().signInWithGoogle();
+                            await GoogleSignUp().signInWithGoogle();
+                            // then(
+                            //   (value) => Navigator.of(context).pushReplacement(
+                            //   MaterialPageRoute(
+                            //     builder: (context) => HomeScreen(),
+                            //   ),
+                            // ),
+                            // );
 
                             // Our method is returning a user
 
