@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
         actions: [
           CircleAvatar(
             radius: 12,
-            backgroundColor: Color(0xffd4d181),
+            backgroundColor: Color(0xffd1ad17),
             child: Icon(
               Icons.search,
               size: 17,
@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: CircleAvatar(
-              backgroundColor: Color(0xffd4d181),
+              backgroundColor: Color(0xffd1ad17),
               radius: 12,
               child: Icon(
                 Icons.shop,
@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ],
-        backgroundColor: Color.fromARGB(255, 225, 255, 1),
+        backgroundColor: Color(0xffd1ad17),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -53,16 +53,64 @@ class HomeScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      color: Colors.red,
-                    )
+                    flex: 2,
+                      child: Container(
+                    // color: Colors.red,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(right: 130, bottom: 10),
+                          child: Container(
+                            height: 30,
+                            width: 80,
+                            decoration: BoxDecoration(
+                                color: Color(0xffd1ad17),
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(50),
+                                    bottomLeft: Radius.circular(50))),
+                           child: Center(
+                            child: Text(
+                              'VEGES',
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: Color.fromARGB(255, 214, 210, 210),
+                                shadows: [
+                                  BoxShadow(
+                                      color: Colors.green,
+                                      blurRadius: 10,
+                                      offset: Offset(3, 3))
+                                ],
+                              ),
+                            ),
+                          ),
+                          ),
+                        ),
+                        Text(
+                          '30% Off',
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.green[100],
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Text(
+                            'On all vegetable products',
+                            style: TextStyle(
+                              color: Colors.white,
+                              // fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-Expanded(child: Container(
-  
-))
-                    ],
+                  )),
+                  Expanded(child: Container())
+                ],
               ),
             ),
+          
           ],
         ),
       ),
