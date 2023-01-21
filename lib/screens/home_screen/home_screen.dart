@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffcbcbcb),
       drawer: Drawer(),
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
@@ -53,64 +56,110 @@ class HomeScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    flex: 2,
+                      flex: 2,
                       child: Container(
-                    // color: Colors.red,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding:
-                              const EdgeInsets.only(right: 130, bottom: 10),
-                          child: Container(
-                            height: 30,
-                            width: 80,
-                            decoration: BoxDecoration(
-                                color: Color(0xffd1ad17),
-                                borderRadius: BorderRadius.only(
-                                    bottomRight: Radius.circular(50),
-                                    bottomLeft: Radius.circular(50))),
-                           child: Center(
-                            child: Text(
-                              'VEGES',
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: Color.fromARGB(255, 214, 210, 210),
-                                shadows: [
-                                  BoxShadow(
-                                      color: Colors.green,
-                                      blurRadius: 10,
-                                      offset: Offset(3, 3))
-                                ],
+                        // color: Colors.red,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(right: 130, bottom: 10),
+                              child: Container(
+                                height: 30,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                    color: Color(0xffd1ad17),
+                                    borderRadius: BorderRadius.only(
+                                        bottomRight: Radius.circular(50),
+                                        bottomLeft: Radius.circular(50))),
+                                child: Center(
+                                  child: Text(
+                                    'VEGES',
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      color: Color.fromARGB(255, 214, 210, 210),
+                                      shadows: [
+                                        BoxShadow(
+                                            color: Colors.green,
+                                            blurRadius: 10,
+                                            offset: Offset(3, 3))
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                          ),
-                        ),
-                        Text(
-                          '30% Off',
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.green[100],
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Text(
-                            'On all vegetable products',
-                            style: TextStyle(
-                              color: Colors.white,
-                              // fontWeight: FontWeight.bold
+                            Text(
+                              '30% Off',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.green[100],
+                                  fontWeight: FontWeight.bold),
                             ),
-                          ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: Text(
+                                'On all vegetable products',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  // fontWeight: FontWeight.bold
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  )),
+                      )),
                   Expanded(child: Container())
                 ],
               ),
             ),
-          
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Herbs Seasonings'),
+                  Text(
+                    'view all',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              children: [
+                Container(
+                    height: 230,
+                    width: 160,
+                    decoration: BoxDecoration(
+                        color: Color(0xffd9dad9),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                      children: [
+                        Expanded(
+                            flex: 2,
+                            child: Image.network(
+                                'https://thumbs.dreamstime.com/b/organic-green-kale-leaf-vegetable-closeup-white-background-151080671.jpg')),
+                        Expanded(
+                            child: Container(
+                          child: Column(children: [
+                            Text(
+                              'Fresh kales',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              '50\$/50 Gram',
+                              style: TextStyle(color: Colors.grey),
+                            )
+                          ]),
+                        )),
+                      ],
+                    ))
+              ],
+            ),
           ],
         ),
       ),
