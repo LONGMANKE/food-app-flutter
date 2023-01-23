@@ -1,4 +1,4 @@
-import 'dart:io';
+// import 'dart:io';
 
 import 'package:flutter/material.dart';
 
@@ -135,27 +135,110 @@ class HomeScreen extends StatelessWidget {
                         color: Color(0xffd9dad9),
                         borderRadius: BorderRadius.circular(10)),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
                             flex: 2,
                             child: Image.network(
                                 'https://thumbs.dreamstime.com/b/organic-green-kale-leaf-vegetable-closeup-white-background-151080671.jpg')),
                         Expanded(
-                            child: Container(
-                          child: Column(children: [
-                            Text(
-                              'Fresh kales',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              // vertical: 30,
                             ),
-                            Text(
-                              '50\$/50 Gram',
-                              style: TextStyle(color: Colors.grey),
-                            )
-                          ]),
-                        )),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Fresh kales',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  '50\$/50 Gram',
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: Container(
+                                        height: 30,
+                                        width: 50,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(),
+                                        // color: Colors.black,
+                                          borderRadius: BorderRadius.circular(10)
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(width: 5,),
+                                    Expanded(
+                                      child: Container(
+                                        height: 30,
+                                        width: 50,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(),
+                                        // color: Colors.red,
+                                          borderRadius: BorderRadius.circular(8)
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )
+
+                                // Row(
+                                //   children: [
+                                //     Expanded(
+                                //       child: Container(
+                                //         height: 30,
+                                //         width: 10,
+                                //         // decoration: BoxDecoration(
+                                //         //     borderRadius:
+                                //         //         BorderRadius.circular(10)),
+                                //         c        hild: OutlinedButton(
+                                //           child: Row(
+                                //             children: [
+                                //               Expanded(child: Text('50 Gram',style: TextStyle(fontSize: 10))),
+                                //               Center(
+                                //                 child: Icon(Icons.arrow_drop_down,
+                                //                     size: 20,
+                                //                     color: Colors.yellow),
+                                //               ),
+                                //             ],
+                                //           ),
+                                //           onPressed: () {},
+                                //         ),
+                                //       ),
+                                //     ),
+                                //     Expanded(
+                                //       child: Container(
+                                //         height: 30,
+                                //         width: 120,
+                                //          child: OutlinedButton(
+                                //           child: Row(
+                                //             children: [
+                                //               Expanded(child: Text('50 Gram')),
+                                //               Expanded(
+                                //                 child: Icon(
+                                //                   Icons.arrow_drop_down,
+                                //                     size: 20,
+                                //                     color: Colors.yellow),
+                                //               ),
+                                //             ],
+                                //           ),
+                                //           onPressed: () {},
+                                //         ),
+                                //       ),
+                                //     ),
+                                //   ],
+                                // ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ))
               ],
