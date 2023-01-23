@@ -3,6 +3,108 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
+  Widget singleProducts() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 5),
+      height: 230,
+      width: 160,
+      decoration: BoxDecoration(
+          color: Color(0xffd9dad9), borderRadius: BorderRadius.circular(10)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+              flex: 2,
+              child: Image.network(
+                  // 'https://as2.ftcdn.net/v2/jpg/01/70/13/17/1000_F_170131750_2Os99WayEoVY5wOaHTeMnQ9OKgRFsTSk.jpg'
+                  'https://media.istockphoto.com/id/1218679698/photo/fresh-kale-salad-isolated-on-white-background-raw-kale-curly-leaves-food-concept.jpg?s=612x612&w=0&k=20&c=mUlvbg9Bd8OU9deDB0JuQKSxpHdFUnp38KaQxZvAhuE='
+                  )),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10,
+                // vertical: 5,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Fresh kales',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    '50\$/50 Gram',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.only(left: 5),
+                          height: 30,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.grey,
+                              ),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Row(children: [
+                            Expanded(
+                                child: Text('50 Gram',
+                                    style: TextStyle(fontSize: 10))),
+                            Center(
+                              child: Icon(Icons.arrow_drop_down,
+                                  size: 20, color: Colors.yellow),
+                            ),
+                          ]),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: 30,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.grey,
+                              ),
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.remove,
+                                    size: 15, color: Color(0xffd0b84c)),
+                                Text(
+                                  '1',
+                                  style: TextStyle(
+                                    color: Color(0xffd0b84c),
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.add,
+                                  size: 15,
+                                  color: Color(0xffd0b84c),
+                                ),
+                              ]),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +143,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-        child: Column(
+        child: ListView(
           children: [
             Container(
               height: 150,
@@ -126,122 +228,42 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Row(
-              children: [
-                Container(
-                    height: 230,
-                    width: 160,
-                    decoration: BoxDecoration(
-                        color: Color(0xffd9dad9),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                            flex: 2,
-                            child: Image.network(
-                                'https://thumbs.dreamstime.com/b/organic-green-kale-leaf-vegetable-closeup-white-background-151080671.jpg')),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 10,
-                              // vertical: 30,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Fresh kales',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  '50\$/50 Gram',
-                                  style: TextStyle(color: Colors.grey),
-                                ),
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: Container(
-                                        height: 30,
-                                        width: 50,
-                                        decoration: BoxDecoration(
-                                          border: Border.all(),
-                                        // color: Colors.black,
-                                          borderRadius: BorderRadius.circular(10)
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(width: 5,),
-                                    Expanded(
-                                      child: Container(
-                                        height: 30,
-                                        width: 50,
-                                        decoration: BoxDecoration(
-                                          border: Border.all(),
-                                        // color: Colors.red,
-                                          borderRadius: BorderRadius.circular(8)
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )
-
-                                // Row(
-                                //   children: [
-                                //     Expanded(
-                                //       child: Container(
-                                //         height: 30,
-                                //         width: 10,
-                                //         // decoration: BoxDecoration(
-                                //         //     borderRadius:
-                                //         //         BorderRadius.circular(10)),
-                                //         c        hild: OutlinedButton(
-                                //           child: Row(
-                                //             children: [
-                                //               Expanded(child: Text('50 Gram',style: TextStyle(fontSize: 10))),
-                                //               Center(
-                                //                 child: Icon(Icons.arrow_drop_down,
-                                //                     size: 20,
-                                //                     color: Colors.yellow),
-                                //               ),
-                                //             ],
-                                //           ),
-                                //           onPressed: () {},
-                                //         ),
-                                //       ),
-                                //     ),
-                                //     Expanded(
-                                //       child: Container(
-                                //         height: 30,
-                                //         width: 120,
-                                //          child: OutlinedButton(
-                                //           child: Row(
-                                //             children: [
-                                //               Expanded(child: Text('50 Gram')),
-                                //               Expanded(
-                                //                 child: Icon(
-                                //                   Icons.arrow_drop_down,
-                                //                     size: 20,
-                                //                     color: Colors.yellow),
-                                //               ),
-                                //             ],
-                                //           ),
-                                //           onPressed: () {},
-                                //         ),
-                                //       ),
-                                //     ),
-                                //   ],
-                                // ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ))
-              ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  singleProducts(),
+                  singleProducts(),
+                  singleProducts(),
+                  singleProducts(),
+                  singleProducts(),
+                ],
+              ),
+            ),
+             Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Fresh Fruits'),
+                  Text(
+                    'view all',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ],
+              ),
+            ),
+             SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  singleProducts(),
+                  singleProducts(),
+                  singleProducts(),
+                  singleProducts(),
+                  singleProducts(),
+                ],
+              ),
             ),
           ],
         ),
