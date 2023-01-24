@@ -13,12 +13,9 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-              flex: 2,
-              child: Image.network(
-                  // 'https://as2.ftcdn.net/v2/jpg/01/70/13/17/1000_F_170131750_2Os99WayEoVY5wOaHTeMnQ9OKgRFsTSk.jpg'
-                  'https://media.istockphoto.com/id/1218679698/photo/fresh-kale-salad-isolated-on-white-background-raw-kale-curly-leaves-food-concept.jpg?s=612x612&w=0&k=20&c=mUlvbg9Bd8OU9deDB0JuQKSxpHdFUnp38KaQxZvAhuE='
-                  )),
+          Expanded(flex: 2, child: Image.network(
+              // 'https://as2.ftcdn.net/v2/jpg/01/70/13/17/1000_F_170131750_2Os99WayEoVY5wOaHTeMnQ9OKgRFsTSk.jpg'
+              'https://media.istockphoto.com/id/1218679698/photo/fresh-kale-salad-isolated-on-white-background-raw-kale-curly-leaves-food-concept.jpg?s=612x612&w=0&k=20&c=mUlvbg9Bd8OU9deDB0JuQKSxpHdFUnp38KaQxZvAhuE=')),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(
@@ -109,7 +106,29 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffcbcbcb),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: Container(
+          color: Color(0xffd1ad17),
+          child: ListView(children: [
+            DrawerHeader(
+                child: Row(
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.white54,
+                  radius: 43,
+                  child: CircleAvatar(
+                    backgroundColor: Colors.red,
+                    radius:40,
+                    ),
+                ),
+                SizedBox(
+                  height: 7,
+                )
+              ],
+            ))
+          ]),
+        ),
+      ),
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
@@ -240,7 +259,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-             Padding(
+            Padding(
               padding: const EdgeInsets.symmetric(vertical: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -253,7 +272,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-             SingleChildScrollView(
+            SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
