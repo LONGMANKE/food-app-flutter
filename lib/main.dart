@@ -7,14 +7,14 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 void main() async {
   await dotenv.load();  
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp(
-  //   options: const FirebaseOptions(
-  //     apiKey: "dotenv.env['APIKEY']",
-  //     appId: "dotenv.env['APIID']",
-  //     messagingSenderId: "dotenv.env['SENDERID']",
-  //     projectId: "dotenv.env['PROJECTID']",
-  //   ),
-  // );
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: "dotenv.env['APIKEY']",
+      appId: "dotenv.env['APIID']",
+      messagingSenderId: "dotenv.env['SENDERID']",
+      projectId: "dotenv.env['PROJECTID']",
+    ),
+  );
  
 
   runApp(MyApp());
