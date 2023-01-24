@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:food_app/API/google_signup.dart';
+import 'package:food_app/screens/home_screen/home_screen.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -53,14 +54,13 @@ class _SignInState extends State<SignIn> {
                           text: "Sign in with Google",
                           onPressed: () async {
                             // Call our class instance method
-                            await GoogleSignUp().signInWithGoogle();
-                            // then(
-                            //   (value) => Navigator.of(context).pushReplacement(
-                            //   MaterialPageRoute(
-                            //     builder: (context) => HomeScreen(),
-                            //   ),
-                            // ),
-                            // );
+                            await GoogleSignUp().signInWithGoogle().then(
+                              (value) => Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (context) => HomeScreen(),
+                              ),
+                            ),
+                            );
 
                             // Our method is returning a user
 
@@ -91,5 +91,3 @@ class _SignInState extends State<SignIn> {
     );
   }
 }
-
-class Homepage {}
