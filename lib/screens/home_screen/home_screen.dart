@@ -102,6 +102,19 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  Widget listTile({icon, title}) {
+    return ListTile(
+      leading: Icon(
+        icon,
+        size: 32,
+      ),
+      title: Text(
+        title,
+        style: TextStyle(color: Colors.black45),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,21 +124,87 @@ class HomeScreen extends StatelessWidget {
           color: Color(0xffd1ad17),
           child: ListView(children: [
             DrawerHeader(
-                child: Row(
-              children: [
-                CircleAvatar(
-                  backgroundColor: Colors.white54,
-                  radius: 43,
-                  child: CircleAvatar(
-                    backgroundColor: Colors.red,
-                    radius:40,
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Colors.white54,
+                    radius: 43,
+                    child: CircleAvatar(
+                      backgroundColor: Colors.red,
+                      radius: 40,
                     ),
-                ),
-                SizedBox(
-                  height: 7,
-                )
-              ],
-            ))
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Welcome Guest"),
+                      SizedBox(
+                        height: 7,
+                      ),
+                      Container(
+                        height: 25,
+                        child: OutlinedButton(
+                          onPressed: () {},
+                          child: Text("Login"),
+                          style: ButtonStyle(
+                            shape: MaterialStatePropertyAll(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                                side: BorderSide(
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            listTile(icon: Icons.home_outlined, title: "Home"),
+            listTile(icon: Icons.shop_outlined, title: "Review Cart"),
+            listTile(icon: Icons.person_outlined, title: "My Profile"),
+            listTile(icon: Icons.notifications_outlined, title: "Notification"),
+            listTile(icon: Icons.star_outlined, title: "Rating & Review"),
+            listTile(icon: Icons.favorite_outlined, title: "Wishlist"),
+            listTile(icon: Icons.copy_outlined, title: "Raise a Complaint"),
+            listTile(icon: Icons.format_quote_sharp, title: "FAQs"),
+            Container(
+              height: 350,
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Contact Support"),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [Text("Call us:"), 
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text("+254758062974")],
+                  ),
+                  SizedBox(height: 5,),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [Text("Mail us:"), 
+                        SizedBox(
+                        height: 5,
+                      ),
+                      Text("Mburunjoroge0@gmail.com")],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ]),
         ),
       ),
