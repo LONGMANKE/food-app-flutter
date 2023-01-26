@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:food_app/API/google_signup.dart';
-import 'package:food_app/screens/home_screen/home_screen.dart';
+import 'package:food_app/screens/home/home_screen.dart';
 
 class SignIn extends StatefulWidget {
   @override

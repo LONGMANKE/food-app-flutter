@@ -1,8 +1,10 @@
 // import 'dart:io';
 
 import 'package:flutter/material.dart';
+// import 'package:food_app/screens/home/single_product.dart';
 
 class HomeScreen extends StatelessWidget {
+
   Widget singleProducts() {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 5),

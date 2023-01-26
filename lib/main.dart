@@ -2,19 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:food_app/auth/sign_in.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:food_app/screens/home_screen/home_screen.dart';
-// import 'package:food_app/screens/home_screen/home_screen.dart';
+// import 'package:food_app/screens/home/home_screen.dart';
 
 void main() async {
   await dotenv.load();  
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: const FirebaseOptions(
-      apiKey: "dotenv.env['APIKEY']",
-      appId: "dotenv.env['APIID']",
-      messagingSenderId: "dotenv.env['SENDERID']",
-      projectId: "dotenv.env['PROJECTID']",
-    ),
+    // options: const FirebaseOptions(
+    //   apiKey: "dotenv.env['APIKEY']",
+    //   appId: "dotenv.env['APIID']",
+    //   messagingSenderId: "dotenv.env['SENDERID']",
+    //   projectId: "dotenv.env['PROJECTID']",
+    // ),
   );
  
 
@@ -30,8 +29,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
-      // home: SignIn(),
-      home: HomeScreen(),
+      home: SignIn(),
+      // home: HomeScreen(),
     );
   }
 }
