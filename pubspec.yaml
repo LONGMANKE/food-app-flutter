@@ -37,6 +37,7 @@ dependencies:
   google_maps_flutter: any
   flutter_svg: ^1.1.6
   flutter_dotenv: ^5.0.2
+  color: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

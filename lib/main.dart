@@ -8,12 +8,12 @@ void main() async {
   await dotenv.load();  
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    // options: const FirebaseOptions(
-    //   apiKey: "dotenv.env['APIKEY']",
-    //   appId: "dotenv.env['APIID']",
-    //   messagingSenderId: "dotenv.env['SENDERID']",
-    //   projectId: "dotenv.env['PROJECTID']",
-    // ),
+    options: const FirebaseOptions(
+      apiKey: "dotenv.env['APIKEY']",
+      appId: "dotenv.env['APIID']",
+      messagingSenderId: "dotenv.env['SENDERID']",
+      projectId: "dotenv.env['PROJECTID']",
+    ),
   );
  
 
