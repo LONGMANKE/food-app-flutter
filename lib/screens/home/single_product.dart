@@ -8,7 +8,11 @@ class SingalProduct extends StatelessWidget {
   final int productPrice;
   // I'll change VoidCallback to Function
   final VoidCallback onTap;
-  SingalProduct(this.productImage, this.productName,this.onTap,this.productPrice);
+  SingalProduct(
+      {required this.productImage,
+      required this.productName,
+      required this.onTap,
+      required this.productPrice});
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -26,7 +30,7 @@ class SingalProduct extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(                  
+                GestureDetector(
                   onTap: onTap,
                   child: Container(
                     height: 150,
@@ -92,7 +96,7 @@ class SingalProduct extends StatelessWidget {
                             SizedBox(
                               width: 5,
                             ),
-                           Count(),
+                            Count(),
                           ],
                         ),
                       ],
