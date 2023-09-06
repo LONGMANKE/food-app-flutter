@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/config/colors.dart';
-import 'package:food_app/widgets/count.dart';
+import 'package:food_app/screens/product_overview/product_overview.dart';
 
-class SingalProduct extends StatelessWidget {
+class SingleProduct extends StatelessWidget {
   final String productImage;
+
   final String productName;
-  final int productPrice;
-  // I'll change VoidCallback to Function
-  final VoidCallback onTap;
-  SingalProduct(
-      {required this.productImage,
-      required this.productName,
-      required this.onTap,
-      required this.productPrice});
+
+  final Function onTap;
+
+  SingleProduct({
+    required this.productImage,
+    required this.productName,
+    required this.onTap,
+  });
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -31,7 +33,18 @@ class SingalProduct extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GestureDetector(
-                  onTap: onTap,
+                  onTap: () {
+                    // Navigator.of(context).push(
+                    //     MaterialPageRoute(
+                    //       builder: (context) => ProductOverview(),
+                    //     ),
+                    //     );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProductOverview()),
+                    );
+                  },
                   child: Container(
                     height: 150,
                     padding: EdgeInsets.all(5),
@@ -57,10 +70,8 @@ class SingalProduct extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '$productPrice\$/50 Gram',
-                          style: TextStyle(
-                            color: Colors.grey,
-                          ),
+                          '50\$50 Gram',
+                          style: TextStyle(color: Colors.grey),
                         ),
                         SizedBox(
                           height: 5,
@@ -72,31 +83,72 @@ class SingalProduct extends StatelessWidget {
                                 padding: EdgeInsets.only(left: 5),
                                 height: 25,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey),
+                                  border: Border.all(
+                                    color: Colors.grey,
+                                  ),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Row(
                                   children: [
+// Quantity
+
                                     Expanded(
                                         child: Text(
                                       '50 Gram',
-                                      style: TextStyle(fontSize: 11),
+                                      style: TextStyle(fontSize: 10),
                                     )),
+
+// Arrow
+
                                     Center(
                                       child: Icon(
                                         Icons.arrow_drop_down,
-                                        size: 20,
-                                        color: Colors.yellow,
+                                        size: 19,
+                                        color: Colors.brown,
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
                             ),
+
+//This Is Second Rectangular Container
+
                             SizedBox(
                               width: 5,
                             ),
-                            Count(),
+
+                            Container(
+                              height: 25,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.grey,
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Icon(
+                                    Icons.remove,
+                                    size: 15,
+                                    color: primaryColor,
+                                  ),
+                                  Text(
+                                    "1",
+                                    style: TextStyle(
+                                        color: Colors.brown,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Icon(
+                                    Icons.add,
+                                    size: 15,
+                                  ),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                       ],
