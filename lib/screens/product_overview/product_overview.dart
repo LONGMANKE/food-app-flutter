@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/config/colors.dart';
 
- 
 class ProductOverview extends StatefulWidget {
-  
-     @override
+  final String productName;
+  final String productImage;
+  ProductOverview({required this.productName, required this.productImage});
+
+  @override
   _ProductOverviewState createState() => _ProductOverviewState();
 }
 
 class _ProductOverviewState extends State<ProductOverview> {
-
   Widget bonntonNavigatorBar({
     required Color iconColor,
     required Color backgroundColor,
@@ -79,14 +80,14 @@ class _ProductOverviewState extends State<ProductOverview> {
               child: Column(
                 children: [
                   ListTile(
-                    title: Text("Kales"),
+                    title: Text(widget.productName),
                     subtitle: Text("\$50"),
                   ),
                   Container(
                       height: 250,
                       padding: EdgeInsets.all(40),
                       child: Image.network(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi0Xg-k622Sbztlrb-L1o1CAla3zCbVc2lUw&usqp=CAU",
+                        widget.productImage,
                       )),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
@@ -168,7 +169,7 @@ class _ProductOverviewState extends State<ProductOverview> {
               width: double.infinity,
               child: ListView(
                 children: [
-                   Text(
+                  Text(
                     "About This Product",
                     style: TextStyle(
                       fontSize: 18,

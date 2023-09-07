@@ -42,11 +42,14 @@ class SingleProduct extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ProductOverview()),
+                          builder: (context) => ProductOverview(
+                            productImage: "https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg",
+                            productName: "Fresh Basil",
+                          )),
                     );
                   },
                   child: Container(
-                    height: 150,
+                    height: 120,
                     padding: EdgeInsets.all(5),
                     width: double.infinity,
                     child: Image.network(
