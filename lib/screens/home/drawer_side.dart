@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/config/colors.dart';
+import 'package:food_app/screens/my_profile/my_profile.dart';
 
 class DrawerSide extends StatelessWidget {
-  Widget listTile({required String title,required IconData iconData}) {
-
+  Widget listTile({required String title,required IconData iconData, onTap}) {
     return ListTile(
+      onTap: onTap,
       leading: Icon(
         iconData,
         size: 28,
@@ -68,7 +69,13 @@ class DrawerSide extends StatelessWidget {
             ),
             listTile(iconData: Icons.home_outlined, title: "Home"),
             listTile(iconData: Icons.shop_outlined, title: "Review Cart"),
-            listTile(iconData: Icons.person_outlined, title: "My Profile"),
+            listTile(iconData: Icons.person_outlined, title: "My Profile", onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => MyProfile(),
+                  ),
+                );
+              },),
             listTile(iconData: Icons.notifications_outlined, title: "Notification"),
             listTile(iconData: Icons.star_outlined, title: "Rating & Review"),
             listTile(iconData: Icons.favorite_outlined, title: "Wishlist"),
