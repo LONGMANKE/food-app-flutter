@@ -31,6 +31,7 @@ class DrawerSide extends StatelessWidget {
                     child: CircleAvatar(
                       backgroundColor: Colors.red,
                       radius: 40,
+                      backgroundImage: NetworkImage("https://mburunjoroge.netlify.app/images/123wq.png"),
                     ),
                   ),
                   SizedBox(
