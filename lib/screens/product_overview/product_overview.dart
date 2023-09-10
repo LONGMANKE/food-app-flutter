@@ -81,7 +81,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                 children: [
                   ListTile(
                     title: Text(widget.productName),
-                    subtitle: Text("\$50"),
+                    subtitle: Text("\KSH50"),
                   ),
                   Container(
                       height: 250,

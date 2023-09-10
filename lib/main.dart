@@ -10,6 +10,7 @@ void main() async {
   await Firebase.initializeApp(
     options: const FirebaseOptions(
       apiKey: "AIzaSyAT5strzevOIw0p16i1XrJlEa0hHNh62u0",
+      // apiKey: "dotenv['APIKEY']",
       appId: "dotenv.env['APIID']",
       messagingSenderId: "dotenv.env['SENDERID']",
       projectId: "dotenv.env['PROJECTID']",
