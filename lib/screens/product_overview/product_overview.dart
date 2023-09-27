@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/config/colors.dart';
 
+// enum SigninCharacter { fill, outline }
+
 class ProductOverview extends StatefulWidget {
   final String productName;
   final String productImage;
-  ProductOverview({required this.productName, required this.productImage});
+  final int productPrice;
+
+  ProductOverview(
+      {required this.productName,
+      required this.productImage,
+      required this.productPrice});
 
   @override
   _ProductOverviewState createState() => _ProductOverviewState();
 }
 
 class _ProductOverviewState extends State<ProductOverview> {
+  // SigninCharacter _character = SigninCharacter.fill;
+
   Widget bonntonNavigatorBar({
     required Color iconColor,
     required Color backgroundColor,
@@ -81,7 +90,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                 children: [
                   ListTile(
                     title: Text(widget.productName),
-                    subtitle: Text("\KSH50"),
+                    subtitle: Text("\KSH${widget.productPrice}"),
                   ),
                   Container(
                       height: 250,

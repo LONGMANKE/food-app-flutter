@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:food_app/auth/sign_in.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:food_app/config/colors.dart';
+import 'package:food_app/providers/product_provider.dart';
+import 'package:provider/provider.dart';
 // import 'package:food_app/screens/home/home_screen.dart';
 
 void main() async {
@@ -9,8 +12,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: const FirebaseOptions(
-      // apiKey: "AIzaSyAT5strzevOIw0p16i1XrJlEa0hHNh62u0",
       apiKey:"AIzaSyDw5CGTP7lL9Jc4o_Nt_W2IpzGvXUZUieA",
+      //API key using .env not working 
       // apiKey: "dotenv['APIKEY']",
       appId: "dotenv.env['APIID']",
       messagingSenderId: "dotenv.env['SENDERID']",
@@ -28,11 +31,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true),
-      home: SignIn(),
-      // home: HomeScreen(),
+    return ChangeNotifierProvider<ProductProvider>(
+      create:(context) => ProductProvider(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primaryColor: primaryColor,
+          scaffoldBackgroundColor: scaffoldBackgroundColor,
+        ),
+        home: SignIn(),
+        // home: HomeScreen(),
+      ),
     );
   }
 }

@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/config/colors.dart';
+import 'package:food_app/providers/product_provider.dart';
 import 'package:food_app/screens/home/single_product.dart';
+import 'package:food_app/screens/product_overview/product_overview.dart';
 import 'package:food_app/screens/search/search.dart';
+import 'package:provider/provider.dart';
 import 'drawer_side.dart';
 
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
-class HomeScreen extends StatelessWidget {
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  ProductProvider? productProvider;
+
   Widget _buildHerbsProduct(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,31 +37,50 @@ class HomeScreen extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: ' 1',
-                  onTap: () {}),
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs2',
-                  onTap: () {}),
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs3',
-                  onTap: () {}),
-            ],
+            children: productProvider!.getHerbsProductDataList.map(
+              (herbsProductData) {
+                return SingleProduct(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => ProductOverview(
+                            productName: herbsProductData.productName,
+                            productImage: herbsProductData.productImage,
+                            productPrice: herbsProductData.productPrice,
+                          ),
+                        ),
+                      );
+                    },
+                    productName: herbsProductData.productName,
+                    productImage: herbsProductData.productImage,
+                            productPrice: herbsProductData.productPrice,
+
+                    );
+              },
+            ).toList(),
+            // children: [
+            //   SingleProduct(
+            //       productImage:
+            //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+            //       productName: ' 1',
+            //       onTap: () {}),
+            //   // SingleProduct(
+            //   //     productImage:
+            //   //         ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+            //   //     productName: 'Herbs2',
+            //   //     onTap: () {}),
+            //   // SingleProduct(
+            //   //     productImage:
+            //   //         ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+            //   //     productName: 'Herbs3',
+            //   //     onTap: () {}),
+            // ],
           ),
         ),
       ],
     );
   }
 
-  
-  
   Widget _buildFreshProduct(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,23 +101,23 @@ class HomeScreen extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs',
-                  onTap: () {}),
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs',
-                  onTap: () {}),
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs',
-                  onTap: () {}),
-            ],
+            // children: [
+            //   SingleProduct(
+            //       productImage:
+            //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+            //       productName: 'Herbs',
+            //       onTap: () {}),
+            //   SingleProduct(
+            //       productImage:
+            //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+            //       productName: 'Herbs',
+            //       onTap: () {}),
+            //   SingleProduct(
+            //       productImage:
+            //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+            //       productName: 'Herbs',
+            //       onTap: () {}),
+            // ],
           ),
         ),
       ],
@@ -114,34 +144,39 @@ class HomeScreen extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs',
-                  onTap: () {}),
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs',
-                  onTap: () {}),
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs',
-                  onTap: () {}),
-            ],
+            // children: [
+            //   SingleProduct(
+            //       productImage:
+            //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+            //       productName: 'Herbs',
+            //       onTap: () {}),
+            //   SingleProduct(
+            //       productImage:
+            //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+            //       productName: 'Herbs',
+            //       onTap: () {}),
+            //   SingleProduct(
+            //       productImage:
+            //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+            //       productName: 'Herbs',
+            //       onTap: () {}),
+            // ],
           ),
         ),
       ],
     );
   }
 
-  const HomeScreen({Key? key}) : super(key: key);
+  @override
+  void initState() {
+    ProductProvider productProvider = Provider.of(context, listen: false);
+    productProvider.fetchHerbsProductData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    
+    productProvider = Provider.of(context);
     return Scaffold(
       drawer: DrawerSide(),
       appBar: AppBar(
@@ -156,14 +191,17 @@ class HomeScreen extends StatelessWidget {
             backgroundColor: primaryColor,
             radius: 12,
             child: IconButton(
-                onPressed:() {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Search(),));
-                },
-                icon: Icon(
-              Icons.search,
-              size: 17,
-              color: textColor,
-            ),),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Search(),
+                ));
+              },
+              icon: Icon(
+                Icons.search,
+                size: 17,
+                color: textColor,
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -189,8 +227,7 @@ class HomeScreen extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(
-                    'https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'
-                ),
+                      'https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
                 ),
                 color: Colors.red,
                 borderRadius: BorderRadius.circular(10),

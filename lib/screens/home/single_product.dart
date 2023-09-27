@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/config/colors.dart';
-import 'package:food_app/screens/product_overview/product_overview.dart';
+// import 'package:food_app/screens/product_overview/product_overview.dart';
 
 class SingleProduct extends StatelessWidget {
   final String productImage;
-
   final String productName;
-
-  final Function onTap;
+  final int productPrice;
+  final VoidCallback onTap;
 
   SingleProduct({
     required this.productImage,
     required this.productName,
+    required this.productPrice,
     required this.onTap,
   });
 
@@ -33,21 +33,7 @@ class SingleProduct extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GestureDetector(
-                  onTap: () {
-                    // Navigator.of(context).push(
-                    //     MaterialPageRoute(
-                    //       builder: (context) => ProductOverview(),
-                    //     ),
-                    //     );
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ProductOverview(
-                            productImage: "https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg",
-                            productName: "Fresh Basil",
-                          )),
-                    );
-                  },
+                  onTap: onTap,
                   child: Container(
                     height: 120,
                     padding: EdgeInsets.all(5),
@@ -73,7 +59,7 @@ class SingleProduct extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '50\$50 Gram',
+                          '$productPrice\$/50 Gram',
                           style: TextStyle(color: Colors.grey),
                         ),
                         SizedBox(

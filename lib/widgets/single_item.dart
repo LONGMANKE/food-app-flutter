@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/config/colors.dart';
 
+// ignore: must_be_immutable
 class SingleItem extends StatelessWidget {
   bool isBool = false;
   SingleItem({required this.isBool});
