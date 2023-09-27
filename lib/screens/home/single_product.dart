@@ -59,7 +59,7 @@ class SingleProduct extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '$productPrice\$/50 Gram',
+                          '$productPrice\KSH/50 Gram',
                           style: TextStyle(color: Colors.grey),
                         ),
                         SizedBox(

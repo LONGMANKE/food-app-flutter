@@ -17,7 +17,7 @@ void main() async {
       // apiKey: "dotenv['APIKEY']",
       appId: "dotenv.env['APIID']",
       messagingSenderId: "dotenv.env['SENDERID']",
-      projectId: "dotenv.env['PROJECTID']",
+      projectId: "foodapp-21",
     ),
   );
  
