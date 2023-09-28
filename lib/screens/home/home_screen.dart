@@ -146,25 +146,28 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: Row(
-              // children: [
-              //   SingleProduct(
-              //       productImage:
-              //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-              //       productName: 'Herbs',
-              //       onTap: () {}),
-              //   SingleProduct(
-              //       productImage:
-              //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-              //       productName: 'Herbs',
-              //       onTap: () {}),
-              //   SingleProduct(
-              //       productImage:
-              //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-              //       productName: 'Herbs',
-              //       onTap: () {}),
-              // ],
-              ),
+                  child: Row(
+            children: productProvider!.getRootProductDataList.map(
+              (rootProductData) {
+                return SingleProduct(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => ProductOverview(
+                          productName: rootProductData.productName,
+                          productImage: rootProductData.productImage,
+                          productPrice: rootProductData.productPrice,
+                        ),
+                      ),
+                    );
+                  },
+                  productName: rootProductData.productName,
+                  productImage: rootProductData.productImage,
+                  productPrice: rootProductData.productPrice,
+                );
+              },
+            ).toList(),
+                  ),
         ),
       ],
     );
@@ -175,6 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ProductProvider productProvider = Provider.of(context, listen: false);
     productProvider.fetchHerbsProductData();
     productProvider.fetchFreshProductData();
+    productProvider.fetchRootProductData();
     super.initState();
   }
 

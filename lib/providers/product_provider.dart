@@ -56,4 +56,32 @@ class ProductProvider with ChangeNotifier {
   List<ProductModel> get getFreshProductDataList {
     return freshProductList;
   }
+
+
+  //Root tubers
+    List<ProductModel> rootProductList = [];
+  fetchRootProductData() async {
+    List<ProductModel> newList = [];
+
+    QuerySnapshot value =
+        await FirebaseFirestore.instance.collection("RootProduct").get();
+    value.docs.forEach(
+      (element) {
+        // print(element.data());
+        productModel = ProductModel(
+          productImage: element.get("productImage"),
+          productName: element.get("productName"),
+          productPrice: element.get("productPrice"),
+        );
+        newList.add(productModel!);
+      },
+    );
+    rootProductList = newList;
+    notifyListeners();
+  }
+
+  List<ProductModel> get getRootProductDataList {
+    return rootProductList;
+  }
+
 }
