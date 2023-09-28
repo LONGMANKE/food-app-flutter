@@ -40,22 +40,21 @@ class _HomeScreenState extends State<HomeScreen> {
             children: productProvider!.getHerbsProductDataList.map(
               (herbsProductData) {
                 return SingleProduct(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => ProductOverview(
-                            productName: herbsProductData.productName,
-                            productImage: herbsProductData.productImage,
-                            productPrice: herbsProductData.productPrice,
-                          ),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => ProductOverview(
+                          productName: herbsProductData.productName,
+                          productImage: herbsProductData.productImage,
+                          productPrice: herbsProductData.productPrice,
                         ),
-                      );
-                    },
-                    productName: herbsProductData.productName,
-                    productImage: herbsProductData.productImage,
-                            productPrice: herbsProductData.productPrice,
-
+                      ),
                     );
+                  },
+                  productName: herbsProductData.productName,
+                  productImage: herbsProductData.productImage,
+                  productPrice: herbsProductData.productPrice,
+                );
               },
             ).toList(),
             // children: [
@@ -101,23 +100,27 @@ class _HomeScreenState extends State<HomeScreen> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            // children: [
-            //   SingleProduct(
-            //       productImage:
-            //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-            //       productName: 'Herbs',
-            //       onTap: () {}),
-            //   SingleProduct(
-            //       productImage:
-            //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-            //       productName: 'Herbs',
-            //       onTap: () {}),
-            //   SingleProduct(
-            //       productImage:
-            //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-            //       productName: 'Herbs',
-            //       onTap: () {}),
-            // ],
+            children: productProvider!.getFreshProductDataList.map(
+              (freshProductData) {
+                return SingleProduct(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => ProductOverview(
+                          productName: freshProductData.productName,
+                          productImage: freshProductData.productImage,
+                          productPrice: freshProductData.productPrice,
+                        ),
+                      ),
+                    );
+                  },
+                  productName: freshProductData.productName,
+                  productImage: freshProductData.productImage,
+                  productPrice: freshProductData.productPrice,
+                );
+              },
+            ).toList(),
+          
           ),
         ),
       ],
@@ -144,24 +147,24 @@ class _HomeScreenState extends State<HomeScreen> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            // children: [
-            //   SingleProduct(
-            //       productImage:
-            //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-            //       productName: 'Herbs',
-            //       onTap: () {}),
-            //   SingleProduct(
-            //       productImage:
-            //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-            //       productName: 'Herbs',
-            //       onTap: () {}),
-            //   SingleProduct(
-            //       productImage:
-            //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-            //       productName: 'Herbs',
-            //       onTap: () {}),
-            // ],
-          ),
+              // children: [
+              //   SingleProduct(
+              //       productImage:
+              //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+              //       productName: 'Herbs',
+              //       onTap: () {}),
+              //   SingleProduct(
+              //       productImage:
+              //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+              //       productName: 'Herbs',
+              //       onTap: () {}),
+              //   SingleProduct(
+              //       productImage:
+              //           ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+              //       productName: 'Herbs',
+              //       onTap: () {}),
+              // ],
+              ),
         ),
       ],
     );
@@ -171,6 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     ProductProvider productProvider = Provider.of(context, listen: false);
     productProvider.fetchHerbsProductData();
+    productProvider.fetchFreshProductData();
     super.initState();
   }
 

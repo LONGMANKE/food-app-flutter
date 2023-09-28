@@ -3,8 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:food_app/models/product_model.dart';
 
 class ProductProvider with ChangeNotifier {
-  List<ProductModel> herbsProductList = [];
   ProductModel? productModel;
+
+  // herbs
+  List<ProductModel> herbsProductList = [];
   fetchHerbsProductData() async {
     List<ProductModel> newList = [];
 
@@ -25,7 +27,33 @@ class ProductProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<ProductModel>get getHerbsProductDataList {
+  List<ProductModel> get getHerbsProductDataList {
     return herbsProductList;
+  }
+
+  //Fresh Fruits
+  List<ProductModel> freshProductList = [];
+  fetchFreshProductData() async {
+    List<ProductModel> newList = [];
+
+    QuerySnapshot value =
+        await FirebaseFirestore.instance.collection("FreshProduct").get();
+    value.docs.forEach(
+      (element) {
+        // print(element.data());
+        productModel = ProductModel(
+          productImage: element.get("productImage"),
+          productName: element.get("productName"),
+          productPrice: element.get("productPrice"),
+        );
+        newList.add(productModel!);
+      },
+    );
+    freshProductList = newList;
+    notifyListeners();
+  }
+
+  List<ProductModel> get getFreshProductDataList {
+    return freshProductList;
   }
 }
